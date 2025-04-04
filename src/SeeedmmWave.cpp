@@ -181,12 +181,14 @@ uint32_t SeeedmmWave::extractU32(const uint8_t* bytes) const {
  * port, baud rate, wait delay, and optionally resetting the hardware.
  */
 void SeeedmmWave::begin(HardwareSerial* serial, uint32_t baud,
-                        uint32_t wait_delay, int rst) {
+                        uint32_t wait_delay, int rst, int buffer_size ) {
   this->_serial     = serial;
   this->_baud       = baud;
   this->_wait_delay = wait_delay;
 
-  // _serial->setRxBufferSize(1024 * 32);
+  if (buffer_size > 0) {
+    _serial->setRxBufferSize(buffer_size);
+  }
   _serial->begin(_baud);
   _serial->setTimeout(1000);
 
