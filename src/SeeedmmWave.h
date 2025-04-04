@@ -106,7 +106,7 @@ class SeeedmmWave {
   }
 
   void begin(HardwareSerial* serial, uint32_t baud = _UART_BAUD,
-             uint32_t wait_delay = 1, int rst = -1);
+             uint32_t wait_delay = 1, int rst = -1, int buffer_size = 1024 * 32);
   int available();
   int read(void);
   int read(char* data, int length);

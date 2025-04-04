@@ -186,7 +186,7 @@ void SeeedmmWave::begin(HardwareSerial* serial, uint32_t baud,
   this->_baud       = baud;
   this->_wait_delay = wait_delay;
 
-  _serial->setRxBufferSize(1024 * 32);
+  // _serial->setRxBufferSize(1024 * 32);
   _serial->begin(_baud);
   _serial->setTimeout(1000);
 
